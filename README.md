@@ -1,3 +1,5 @@
 # flutter_codecheck
 
-A new Flutter project.
+公開できるリポジトリがなかったため
+ゆめみさんのコードチェック課題をやってみることにしました。
+https://github.com/yumemi-inc/flutter-engineer-codecheck
