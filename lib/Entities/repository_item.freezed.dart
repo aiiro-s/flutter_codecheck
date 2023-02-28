@@ -20,7 +20,7 @@ RepositoryItem _$RepositoryItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepositoryItem {
-  String? get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   List<RepositoryOwner>? get owner => throw _privateConstructorUsedError;
   String? get html_url => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $RepositoryItemCopyWith<$Res> {
       _$RepositoryItemCopyWithImpl<$Res, RepositoryItem>;
   @useResult
   $Res call(
-      {String? id,
+      {int? id,
       String? name,
       List<RepositoryOwner>? owner,
       String? html_url,
@@ -84,7 +84,7 @@ class _$RepositoryItemCopyWithImpl<$Res, $Val extends RepositoryItem>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -134,7 +134,7 @@ abstract class _$$_RepositoryItemCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? id,
+      {int? id,
       String? name,
       List<RepositoryOwner>? owner,
       String? html_url,
@@ -172,7 +172,7 @@ class __$$_RepositoryItemCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -235,7 +235,7 @@ class _$_RepositoryItem
       _$$_RepositoryItemFromJson(json);
 
   @override
-  final String? id;
+  final int? id;
   @override
   final String? name;
   final List<RepositoryOwner>? _owner;
@@ -340,7 +340,7 @@ class _$_RepositoryItem
 
 abstract class _RepositoryItem implements RepositoryItem {
   const factory _RepositoryItem(
-      {required final String? id,
+      {required final int? id,
       required final String? name,
       required final List<RepositoryOwner>? owner,
       required final String? html_url,
@@ -355,7 +355,7 @@ abstract class _RepositoryItem implements RepositoryItem {
       _$_RepositoryItem.fromJson;
 
   @override
-  String? get id;
+  int? get id;
   @override
   String? get name;
   @override

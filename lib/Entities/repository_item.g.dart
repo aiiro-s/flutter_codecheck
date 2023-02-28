@@ -8,7 +8,7 @@ part of 'repository_item.dart';
 
 _$_RepositoryItem _$$_RepositoryItemFromJson(Map<String, dynamic> json) =>
     _$_RepositoryItem(
-      id: json['id'] as String?,
+      id: json['id'] as int?,
       name: json['name'] as String?,
       owner: (json['owner'] as List<dynamic>?)
           ?.map((e) => RepositoryOwner.fromJson(e as Map<String, dynamic>))

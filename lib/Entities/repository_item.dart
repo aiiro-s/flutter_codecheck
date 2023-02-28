@@ -10,7 +10,7 @@ part 'repository_item.g.dart';
 @freezed
 class RepositoryItem with _$RepositoryItem {
   const factory RepositoryItem({
-    required String? id,
+    required int? id,
     required String? name,
     required List<RepositoryOwner>? owner,
     required String? html_url,
