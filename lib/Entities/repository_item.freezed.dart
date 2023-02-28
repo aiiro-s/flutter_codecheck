@@ -29,7 +29,7 @@ mixin _$RepositoryItem {
   int? get watchers_count => throw _privateConstructorUsedError;
   String? get language => throw _privateConstructorUsedError;
   int? get forks_count => throw _privateConstructorUsedError;
-  int? get open_issues => throw _privateConstructorUsedError;
+  int? get open_issues_count => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +53,7 @@ abstract class $RepositoryItemCopyWith<$Res> {
       int? watchers_count,
       String? language,
       int? forks_count,
-      int? open_issues});
+      int? open_issues_count});
 
   $RepositoryOwnerCopyWith<$Res>? get owner;
 }
@@ -80,7 +80,7 @@ class _$RepositoryItemCopyWithImpl<$Res, $Val extends RepositoryItem>
     Object? watchers_count = freezed,
     Object? language = freezed,
     Object? forks_count = freezed,
-    Object? open_issues = freezed,
+    Object? open_issues_count = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -119,9 +119,9 @@ class _$RepositoryItemCopyWithImpl<$Res, $Val extends RepositoryItem>
           ? _value.forks_count
           : forks_count // ignore: cast_nullable_to_non_nullable
               as int?,
-      open_issues: freezed == open_issues
-          ? _value.open_issues
-          : open_issues // ignore: cast_nullable_to_non_nullable
+      open_issues_count: freezed == open_issues_count
+          ? _value.open_issues_count
+          : open_issues_count // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
@@ -157,7 +157,7 @@ abstract class _$$_RepositoryItemCopyWith<$Res>
       int? watchers_count,
       String? language,
       int? forks_count,
-      int? open_issues});
+      int? open_issues_count});
 
   @override
   $RepositoryOwnerCopyWith<$Res>? get owner;
@@ -183,7 +183,7 @@ class __$$_RepositoryItemCopyWithImpl<$Res>
     Object? watchers_count = freezed,
     Object? language = freezed,
     Object? forks_count = freezed,
-    Object? open_issues = freezed,
+    Object? open_issues_count = freezed,
   }) {
     return _then(_$_RepositoryItem(
       id: freezed == id
@@ -222,9 +222,9 @@ class __$$_RepositoryItemCopyWithImpl<$Res>
           ? _value.forks_count
           : forks_count // ignore: cast_nullable_to_non_nullable
               as int?,
-      open_issues: freezed == open_issues
-          ? _value.open_issues
-          : open_issues // ignore: cast_nullable_to_non_nullable
+      open_issues_count: freezed == open_issues_count
+          ? _value.open_issues_count
+          : open_issues_count // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
@@ -245,7 +245,7 @@ class _$_RepositoryItem
       required this.watchers_count,
       required this.language,
       required this.forks_count,
-      required this.open_issues});
+      required this.open_issues_count});
 
   factory _$_RepositoryItem.fromJson(Map<String, dynamic> json) =>
       _$$_RepositoryItemFromJson(json);
@@ -269,11 +269,11 @@ class _$_RepositoryItem
   @override
   final int? forks_count;
   @override
-  final int? open_issues;
+  final int? open_issues_count;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RepositoryItem(id: $id, name: $name, owner: $owner, html_url: $html_url, description: $description, stargazers_count: $stargazers_count, watchers_count: $watchers_count, language: $language, forks_count: $forks_count, open_issues: $open_issues)';
+    return 'RepositoryItem(id: $id, name: $name, owner: $owner, html_url: $html_url, description: $description, stargazers_count: $stargazers_count, watchers_count: $watchers_count, language: $language, forks_count: $forks_count, open_issues_count: $open_issues_count)';
   }
 
   @override
@@ -290,7 +290,7 @@ class _$_RepositoryItem
       ..add(DiagnosticsProperty('watchers_count', watchers_count))
       ..add(DiagnosticsProperty('language', language))
       ..add(DiagnosticsProperty('forks_count', forks_count))
-      ..add(DiagnosticsProperty('open_issues', open_issues));
+      ..add(DiagnosticsProperty('open_issues_count', open_issues_count));
   }
 
   @override
@@ -313,8 +313,8 @@ class _$_RepositoryItem
                 other.language == language) &&
             (identical(other.forks_count, forks_count) ||
                 other.forks_count == forks_count) &&
-            (identical(other.open_issues, open_issues) ||
-                other.open_issues == open_issues));
+            (identical(other.open_issues_count, open_issues_count) ||
+                other.open_issues_count == open_issues_count));
   }
 
   @JsonKey(ignore: true)
@@ -330,7 +330,7 @@ class _$_RepositoryItem
       watchers_count,
       language,
       forks_count,
-      open_issues);
+      open_issues_count);
 
   @JsonKey(ignore: true)
   @override
@@ -357,7 +357,7 @@ abstract class _RepositoryItem implements RepositoryItem {
       required final int? watchers_count,
       required final String? language,
       required final int? forks_count,
-      required final int? open_issues}) = _$_RepositoryItem;
+      required final int? open_issues_count}) = _$_RepositoryItem;
 
   factory _RepositoryItem.fromJson(Map<String, dynamic> json) =
       _$_RepositoryItem.fromJson;
@@ -381,7 +381,7 @@ abstract class _RepositoryItem implements RepositoryItem {
   @override
   int? get forks_count;
   @override
-  int? get open_issues;
+  int? get open_issues_count;
   @override
   @JsonKey(ignore: true)
   _$$_RepositoryItemCopyWith<_$_RepositoryItem> get copyWith =>

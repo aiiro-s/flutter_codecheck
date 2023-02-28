@@ -19,7 +19,7 @@ class RepositoryItem with _$RepositoryItem {
     required int? watchers_count,
     required String? language,
     required int? forks_count,
-    required int? open_issues,
+    required int? open_issues_count,
   }) = _RepositoryItem;
 
   factory RepositoryItem.fromJson(Map<String, Object?> json) =>

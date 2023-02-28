@@ -19,7 +19,7 @@ _$_RepositoryItem _$$_RepositoryItemFromJson(Map<String, dynamic> json) =>
       watchers_count: json['watchers_count'] as int?,
       language: json['language'] as String?,
       forks_count: json['forks_count'] as int?,
-      open_issues: json['open_issues'] as int?,
+      open_issues_count: json['open_issues_count'] as int?,
     );
 
 Map<String, dynamic> _$$_RepositoryItemToJson(_$_RepositoryItem instance) =>
@@ -33,5 +33,5 @@ Map<String, dynamic> _$$_RepositoryItemToJson(_$_RepositoryItem instance) =>
       'watchers_count': instance.watchers_count,
       'language': instance.language,
       'forks_count': instance.forks_count,
-      'open_issues': instance.open_issues,
+      'open_issues_count': instance.open_issues_count,
     };
