@@ -22,7 +22,7 @@ RepositoryItem _$RepositoryItemFromJson(Map<String, dynamic> json) {
 mixin _$RepositoryItem {
   int? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  List<RepositoryOwner>? get owner => throw _privateConstructorUsedError;
+  RepositoryOwner? get owner => throw _privateConstructorUsedError;
   String? get html_url => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   int? get stargazers_count => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $RepositoryItemCopyWith<$Res> {
   $Res call(
       {int? id,
       String? name,
-      List<RepositoryOwner>? owner,
+      RepositoryOwner? owner,
       String? html_url,
       String? description,
       int? stargazers_count,
@@ -54,6 +54,8 @@ abstract class $RepositoryItemCopyWith<$Res> {
       String? language,
       int? forks_count,
       int? open_issues});
+
+  $RepositoryOwnerCopyWith<$Res>? get owner;
 }
 
 /// @nodoc
@@ -92,7 +94,7 @@ class _$RepositoryItemCopyWithImpl<$Res, $Val extends RepositoryItem>
       owner: freezed == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as List<RepositoryOwner>?,
+              as RepositoryOwner?,
       html_url: freezed == html_url
           ? _value.html_url
           : html_url // ignore: cast_nullable_to_non_nullable
@@ -123,6 +125,18 @@ class _$RepositoryItemCopyWithImpl<$Res, $Val extends RepositoryItem>
               as int?,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RepositoryOwnerCopyWith<$Res>? get owner {
+    if (_value.owner == null) {
+      return null;
+    }
+
+    return $RepositoryOwnerCopyWith<$Res>(_value.owner!, (value) {
+      return _then(_value.copyWith(owner: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -136,7 +150,7 @@ abstract class _$$_RepositoryItemCopyWith<$Res>
   $Res call(
       {int? id,
       String? name,
-      List<RepositoryOwner>? owner,
+      RepositoryOwner? owner,
       String? html_url,
       String? description,
       int? stargazers_count,
@@ -144,6 +158,9 @@ abstract class _$$_RepositoryItemCopyWith<$Res>
       String? language,
       int? forks_count,
       int? open_issues});
+
+  @override
+  $RepositoryOwnerCopyWith<$Res>? get owner;
 }
 
 /// @nodoc
@@ -178,9 +195,9 @@ class __$$_RepositoryItemCopyWithImpl<$Res>
           : name // ignore: cast_nullable_to_non_nullable
               as String?,
       owner: freezed == owner
-          ? _value._owner
+          ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as List<RepositoryOwner>?,
+              as RepositoryOwner?,
       html_url: freezed == html_url
           ? _value.html_url
           : html_url // ignore: cast_nullable_to_non_nullable
@@ -221,15 +238,14 @@ class _$_RepositoryItem
   const _$_RepositoryItem(
       {required this.id,
       required this.name,
-      required final List<RepositoryOwner>? owner,
+      required this.owner,
       required this.html_url,
       required this.description,
       required this.stargazers_count,
       required this.watchers_count,
       required this.language,
       required this.forks_count,
-      required this.open_issues})
-      : _owner = owner;
+      required this.open_issues});
 
   factory _$_RepositoryItem.fromJson(Map<String, dynamic> json) =>
       _$$_RepositoryItemFromJson(json);
@@ -238,16 +254,8 @@ class _$_RepositoryItem
   final int? id;
   @override
   final String? name;
-  final List<RepositoryOwner>? _owner;
   @override
-  List<RepositoryOwner>? get owner {
-    final value = _owner;
-    if (value == null) return null;
-    if (_owner is EqualUnmodifiableListView) return _owner;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
+  final RepositoryOwner? owner;
   @override
   final String? html_url;
   @override
@@ -292,7 +300,7 @@ class _$_RepositoryItem
             other is _$_RepositoryItem &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            const DeepCollectionEquality().equals(other._owner, _owner) &&
+            (identical(other.owner, owner) || other.owner == owner) &&
             (identical(other.html_url, html_url) ||
                 other.html_url == html_url) &&
             (identical(other.description, description) ||
@@ -315,7 +323,7 @@ class _$_RepositoryItem
       runtimeType,
       id,
       name,
-      const DeepCollectionEquality().hash(_owner),
+      owner,
       html_url,
       description,
       stargazers_count,
@@ -342,7 +350,7 @@ abstract class _RepositoryItem implements RepositoryItem {
   const factory _RepositoryItem(
       {required final int? id,
       required final String? name,
-      required final List<RepositoryOwner>? owner,
+      required final RepositoryOwner? owner,
       required final String? html_url,
       required final String? description,
       required final int? stargazers_count,
@@ -359,7 +367,7 @@ abstract class _RepositoryItem implements RepositoryItem {
   @override
   String? get name;
   @override
-  List<RepositoryOwner>? get owner;
+  RepositoryOwner? get owner;
   @override
   String? get html_url;
   @override

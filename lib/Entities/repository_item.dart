@@ -12,7 +12,7 @@ class RepositoryItem with _$RepositoryItem {
   const factory RepositoryItem({
     required int? id,
     required String? name,
-    required List<RepositoryOwner>? owner,
+    required RepositoryOwner? owner,
     required String? html_url,
     required String? description,
     required int? stargazers_count,

@@ -10,9 +10,9 @@ _$_RepositoryItem _$$_RepositoryItemFromJson(Map<String, dynamic> json) =>
     _$_RepositoryItem(
       id: json['id'] as int?,
       name: json['name'] as String?,
-      owner: (json['owner'] as List<dynamic>?)
-          ?.map((e) => RepositoryOwner.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      owner: json['owner'] == null
+          ? null
+          : RepositoryOwner.fromJson(json['owner'] as Map<String, dynamic>),
       html_url: json['html_url'] as String?,
       description: json['description'] as String?,
       stargazers_count: json['stargazers_count'] as int?,
