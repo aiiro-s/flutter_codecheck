@@ -1,6 +1,6 @@
 import 'package:flutter_codecheck/Entities/repository.dart';
 import 'package:flutter_codecheck/Repository/repo_repository.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final searchPageControllerProvider =
     StateNotifierProvider<SearchPageController, Repository>((ref) {
