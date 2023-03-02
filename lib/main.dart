@@ -11,7 +11,7 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const MaterialApp(
+    return MaterialApp(
       home: SearchPage(),
     );
   }
