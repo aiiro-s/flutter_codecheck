@@ -10,8 +10,8 @@ part 'repository.g.dart';
 @freezed
 class Repository with _$Repository {
   const factory Repository({
-    required int? total_count,
-    required List<RepositoryItem>? items,
+    @Default(0) required int total_count,
+    @Default([]) required List<RepositoryItem> items,
   }) = _Repository;
 
   factory Repository.fromJson(Map<String, Object?> json) =>

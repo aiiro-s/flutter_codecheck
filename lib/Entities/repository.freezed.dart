@@ -20,8 +20,8 @@ Repository _$RepositoryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Repository {
-  int? get total_count => throw _privateConstructorUsedError;
-  List<RepositoryItem>? get items => throw _privateConstructorUsedError;
+  int get total_count => throw _privateConstructorUsedError;
+  List<RepositoryItem> get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $RepositoryCopyWith<$Res> {
           Repository value, $Res Function(Repository) then) =
       _$RepositoryCopyWithImpl<$Res, Repository>;
   @useResult
-  $Res call({int? total_count, List<RepositoryItem>? items});
+  $Res call({int total_count, List<RepositoryItem> items});
 }
 
 /// @nodoc
@@ -51,18 +51,18 @@ class _$RepositoryCopyWithImpl<$Res, $Val extends Repository>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? total_count = freezed,
-    Object? items = freezed,
+    Object? total_count = null,
+    Object? items = null,
   }) {
     return _then(_value.copyWith(
-      total_count: freezed == total_count
+      total_count: null == total_count
           ? _value.total_count
           : total_count // ignore: cast_nullable_to_non_nullable
-              as int?,
-      items: freezed == items
+              as int,
+      items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<RepositoryItem>?,
+              as List<RepositoryItem>,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$_RepositoryCopyWith<$Res>
       __$$_RepositoryCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? total_count, List<RepositoryItem>? items});
+  $Res call({int total_count, List<RepositoryItem> items});
 }
 
 /// @nodoc
@@ -89,18 +89,18 @@ class __$$_RepositoryCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? total_count = freezed,
-    Object? items = freezed,
+    Object? total_count = null,
+    Object? items = null,
   }) {
     return _then(_$_Repository(
-      total_count: freezed == total_count
+      total_count: null == total_count
           ? _value.total_count
           : total_count // ignore: cast_nullable_to_non_nullable
-              as int?,
-      items: freezed == items
+              as int,
+      items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<RepositoryItem>?,
+              as List<RepositoryItem>,
     ));
   }
 }
@@ -109,22 +109,23 @@ class __$$_RepositoryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Repository with DiagnosticableTreeMixin implements _Repository {
   const _$_Repository(
-      {required this.total_count, required final List<RepositoryItem>? items})
+      {required this.total_count = 0,
+      required final List<RepositoryItem> items = const []})
       : _items = items;
 
   factory _$_Repository.fromJson(Map<String, dynamic> json) =>
       _$$_RepositoryFromJson(json);
 
   @override
-  final int? total_count;
-  final List<RepositoryItem>? _items;
+  @JsonKey()
+  final int total_count;
+  final List<RepositoryItem> _items;
   @override
-  List<RepositoryItem>? get items {
-    final value = _items;
-    if (value == null) return null;
+  @JsonKey()
+  List<RepositoryItem> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_items);
   }
 
   @override
@@ -172,16 +173,16 @@ class _$_Repository with DiagnosticableTreeMixin implements _Repository {
 
 abstract class _Repository implements Repository {
   const factory _Repository(
-      {required final int? total_count,
-      required final List<RepositoryItem>? items}) = _$_Repository;
+      {required final int total_count,
+      required final List<RepositoryItem> items}) = _$_Repository;
 
   factory _Repository.fromJson(Map<String, dynamic> json) =
       _$_Repository.fromJson;
 
   @override
-  int? get total_count;
+  int get total_count;
   @override
-  List<RepositoryItem>? get items;
+  List<RepositoryItem> get items;
   @override
   @JsonKey(ignore: true)
   _$$_RepositoryCopyWith<_$_Repository> get copyWith =>
