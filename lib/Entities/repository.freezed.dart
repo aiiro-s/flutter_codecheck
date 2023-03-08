@@ -109,19 +109,16 @@ class __$$_RepositoryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Repository with DiagnosticableTreeMixin implements _Repository {
   const _$_Repository(
-      {required this.total_count = 0,
-      required final List<RepositoryItem> items = const []})
+      {required this.total_count, required final List<RepositoryItem> items})
       : _items = items;
 
   factory _$_Repository.fromJson(Map<String, dynamic> json) =>
       _$$_RepositoryFromJson(json);
 
   @override
-  @JsonKey()
   final int total_count;
   final List<RepositoryItem> _items;
   @override
-  @JsonKey()
   List<RepositoryItem> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
