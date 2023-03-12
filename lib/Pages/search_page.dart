@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_codecheck/Controller/search_page_controller.dart';
+import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SearchPage extends ConsumerWidget {
@@ -7,6 +9,8 @@ class SearchPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final asyncState = ref.watch(searchPageControllerProvider);
+    final store = ref.watch(searchPageControllerProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('GitHub Repository Searcher'),
@@ -27,8 +31,8 @@ class SearchPage extends ConsumerWidget {
                   ),
                   prefixIcon: IconButton(
                     icon: const Icon(Icons.search),
-                    onPressed: () {
-                      // Perform the search here
+                    onPressed: () async {
+                      await store.fetch(_searchController.text);
                     },
                   ),
                   border: OutlineInputBorder(
@@ -38,87 +42,49 @@ class SearchPage extends ConsumerWidget {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 4,
           ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: ListView(
-                children: [
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('RepositoryName',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    )),
-                                Text('Repository Description...'),
-                                SizedBox(
-                                  height: 4,
-                                ),
-                                Row(
-                                  children: [
-                                    Text('Langage:'),
-                                    Text('dart'),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 8,
-                                ),
-                                Row(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Icon(Icons.star),
-                                        Text('2'),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.watch),
-                                        Text('2'),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.fork_left),
-                                        Text('2'),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.fork_left),
-                                        Text('2'),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                              height: 16,
-                              width: 16,
-                              child: Icon(Icons.arrow_right)),
-                        ],
-                      ),
-                      Divider(),
-                    ],
+          asyncState.when(
+              data: (state) => Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: state.items.isNotEmpty
+                          ? ListView.builder(
+                              itemCount: state.items.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return RepositoryItemInfo(
+                                  name: state.items[index].name ?? "unknown",
+                                  description: state.items[index].description ??
+                                      "no comment",
+                                  language: state.items[index].language ?? "-",
+                                  stargazersCount:
+                                      state.items[index].stargazers_count ?? 0,
+                                  watchersCount:
+                                      state.items[index].watchers_count ?? 0,
+                                  forksCount:
+                                      state.items[index].forks_count ?? 0,
+                                  onTap: () {},
+                                );
+                              },
+                            )
+                          : const Text('検索結果がありませんでした'),
+                    ),
                   ),
-                  Text('Item 2'),
-                  Text('Item 3'),
-                ],
-              ),
-            ),
-          )
+              error: (Object error, StackTrace stackTrace) {
+                if (error.toString() == 'Exception: GitHubリポジトリの取得に失敗しました') {
+                  return const Text('GitHubリポジトリの取得に失敗しました');
+                } else {
+                  return const Text('例外が発生しました。アプリを再起動して、再度確認してください。');
+                }
+              },
+              loading: () {
+                return const Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              }),
         ],
       ),
     );
