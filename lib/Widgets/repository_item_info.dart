@@ -20,11 +20,12 @@ class RepositoryItemInfo extends StatelessWidget {
   final int stargazersCount;
   final int watchersCount;
   final int forksCount;
-  final Function onTap;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onTap,
       child: Column(
         children: [
           Row(
@@ -88,7 +89,6 @@ class RepositoryItemInfo extends StatelessWidget {
           const Divider(),
         ],
       ),
-      onTap: () => onTap,
     );
   }
 }
