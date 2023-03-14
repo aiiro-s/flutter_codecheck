@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codecheck/Controller/search_page_controller.dart';
+import 'package:flutter_codecheck/Pages/detail_page.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -64,7 +65,15 @@ class SearchPage extends ConsumerWidget {
                                       state.items[index].watchers_count ?? 0,
                                   forksCount:
                                       state.items[index].forks_count ?? 0,
-                                  onTap: () {},
+                                  onTap: () async {
+                                    await Navigator.of(context).push<void>(
+                                      MaterialPageRoute(
+                                        builder: (context) => DetailPage(
+                                          item: state.items[index],
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 );
                               },
                             )
