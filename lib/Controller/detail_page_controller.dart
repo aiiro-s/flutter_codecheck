@@ -1,5 +1,6 @@
 import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 final detailPageControllerFamily = StateNotifierProvider.family<
     DetailPageController, RepositoryItem, RepositoryItem>((ref, item) {
@@ -21,4 +22,11 @@ class DetailPageController extends StateNotifier<RepositoryItem> {
           open_issues_count: item.open_issues_count,
         ));
   RepositoryItem item;
+
+  Future<void> openURL(String url) async {
+    final Uri url = Uri.parse(state.html_url!);
+    if (!await launchUrl(url) || await canLaunchUrl(url)) {
+      throw Exception();
+    }
+  }
 }
