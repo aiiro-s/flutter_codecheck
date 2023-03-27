@@ -2,13 +2,13 @@ import 'package:flutter_codecheck/Entities/repository.dart';
 import 'package:flutter_codecheck/Repository/repo_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final searchPageControllerProvider =
-    StateNotifierProvider<SearchPageController, AsyncValue<Repository>>((ref) {
-  return SearchPageController(ref.read(repoRepositoryProvider));
+final searchPageNotifierProvider =
+    StateNotifierProvider<SearchPageNotifier, AsyncValue<Repository>>((ref) {
+  return SearchPageNotifier(ref.read(repoRepositoryProvider));
 });
 
-class SearchPageController extends StateNotifier<AsyncValue<Repository>> {
-  SearchPageController(this.repoRepository) : super(const AsyncLoading()) {
+class SearchPageNotifier extends StateNotifier<AsyncValue<Repository>> {
+  SearchPageNotifier(this.repoRepository) : super(const AsyncLoading()) {
     init();
   }
   RepoRepository repoRepository;

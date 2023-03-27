@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Controller/detail_page_controller.dart';
+import 'package:flutter_codecheck/Controller/detail_page_notifier.dart';
 import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_codecheck/Entities/repository_owner.dart';
 import 'package:flutter_codecheck/Pages/detail_page.dart';
@@ -152,7 +152,7 @@ void main() {
       MaterialApp(
         home: ProviderScope(
           overrides: [
-            detailPageControllerFamily
+            detailPageNotifierFamilyProvider
                 .overrideWithProvider(mockDetailPageControllerFamily),
           ],
           child: const DetailPage(item: item),
@@ -180,7 +180,7 @@ final mockDetailPageControllerFamily = StateNotifierProvider.family<
   return MockDetailPageController(item);
 });
 
-class MockDetailPageController extends DetailPageController {
+class MockDetailPageController extends DetailPageNotifier {
   MockDetailPageController(super.item);
 
   @override

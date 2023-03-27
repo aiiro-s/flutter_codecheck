@@ -1,4 +1,4 @@
-import 'package:flutter_codecheck/Controller/detail_page_controller.dart';
+import 'package:flutter_codecheck/Controller/detail_page_notifier.dart';
 import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -21,7 +21,7 @@ void main() async {
       final container = ProviderContainer();
 
       expect(
-        container.read(detailPageControllerFamily(item)),
+        container.read(detailPageNotifierFamilyProvider(item)),
         item,
       );
     });
@@ -42,9 +42,9 @@ void main() async {
         open_issues_count: null,
       );
       final container = ProviderContainer();
-      final state = container.read(detailPageControllerFamily(item));
+      final state = container.read(detailPageNotifierFamilyProvider(item));
       final notifier =
-          container.read(detailPageControllerFamily(item).notifier);
+          container.read(detailPageNotifierFamilyProvider(item).notifier);
 
       expect(
         () async => await notifier.openURL(state.html_url!),

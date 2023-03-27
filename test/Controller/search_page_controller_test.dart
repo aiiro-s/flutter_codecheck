@@ -1,4 +1,4 @@
-import 'package:flutter_codecheck/Controller/search_page_controller.dart';
+import 'package:flutter_codecheck/Controller/search_page_notifier.dart';
 import 'package:flutter_codecheck/Entities/repository.dart';
 import 'package:flutter_codecheck/Repository/repo_repository.dart';
 import 'package:flutter_codecheck/Repository/repo_repository_impl.dart';
@@ -21,7 +21,7 @@ void main() async {
       );
 
       expect(
-        container.read(searchPageControllerProvider),
+        container.read(searchPageNotifierProvider),
         const AsyncData(Repository(total_count: 0, items: [])),
       );
     });
@@ -38,12 +38,12 @@ void main() async {
         ],
       );
 
-      final store = container.read(searchPageControllerProvider.notifier);
+      final store = container.read(searchPageNotifierProvider.notifier);
       store.fetch('query');
 
       // 実行直後はローディング中の状態であること
       expect(
-        container.read(searchPageControllerProvider).isLoading,
+        container.read(searchPageNotifierProvider).isLoading,
         true,
       );
     });
@@ -58,17 +58,17 @@ void main() async {
         ],
       );
 
-      final store = container.read(searchPageControllerProvider.notifier);
+      final store = container.read(searchPageNotifierProvider.notifier);
       await store.fetch('query');
 
       // ローディング状態が完了していること
       expect(
-        container.read(searchPageControllerProvider).isLoading,
+        container.read(searchPageNotifierProvider).isLoading,
         false,
       );
       // stateのrepositoryがMockから取得した値と一致していること
       expect(
-        container.read(searchPageControllerProvider).value,
+        container.read(searchPageNotifierProvider).value,
         const Repository(total_count: 1, items: []),
       );
     });
@@ -83,12 +83,12 @@ void main() async {
         ],
       );
 
-      final store = container.read(searchPageControllerProvider.notifier);
+      final store = container.read(searchPageNotifierProvider.notifier);
       await store.fetch('query');
 
       // stateのerror状態が例外処理をキャッチしていること
       expect(
-        container.read(searchPageControllerProvider).error,
+        container.read(searchPageNotifierProvider).error,
         isA<Exception>(),
       );
     });

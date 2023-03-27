@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Controller/detail_page_controller.dart';
+import 'package:flutter_codecheck/Controller/detail_page_notifier.dart';
 import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info_parts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,8 +11,8 @@ class DetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.read(detailPageControllerFamily(item));
-    final notifier = ref.read(detailPageControllerFamily(item).notifier);
+    final state = ref.read(detailPageNotifierFamilyProvider(item));
+    final notifier = ref.read(detailPageNotifierFamilyProvider(item).notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail'),

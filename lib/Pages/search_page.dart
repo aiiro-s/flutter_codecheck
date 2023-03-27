@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Controller/search_page_controller.dart';
+import 'package:flutter_codecheck/Controller/search_page_notifier.dart';
 import 'package:flutter_codecheck/Pages/detail_page.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,8 +10,8 @@ class SearchPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncState = ref.watch(searchPageControllerProvider);
-    final store = ref.watch(searchPageControllerProvider.notifier);
+    final asyncState = ref.watch(searchPageNotifierProvider);
+    final store = ref.watch(searchPageNotifierProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('GitHub Repository Searcher'),
