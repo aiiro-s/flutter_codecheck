@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Controller/detail_page_controller.dart';
+import 'package:flutter_codecheck/Controller/detail_page_notifier.dart';
 import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info_parts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,8 +11,8 @@ class DetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.read(detailPageControllerFamily(item));
-    final notifier = ref.read(detailPageControllerFamily(item).notifier);
+    final state = ref.read(detailPageNotifierFamilyProvider(item));
+    final notifier = ref.read(detailPageNotifierFamilyProvider(item).notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail'),
@@ -24,10 +24,10 @@ class DetailPage extends ConsumerWidget {
           children: [
             Row(
               children: [
-                state.owner != null
+                state.item.owner != null
                     ? CircleAvatar(
-                        backgroundImage: state.owner!.avatar_url != null
-                            ? NetworkImage(state.owner!.avatar_url!)
+                        backgroundImage: state.item.owner!.avatar_url != null
+                            ? NetworkImage(state.item.owner!.avatar_url!)
                             : Image.asset('assets/images/noImage.png').image,
                         backgroundColor: Colors.white,
                       )
@@ -41,7 +41,7 @@ class DetailPage extends ConsumerWidget {
                   child: FittedBox(
                     fit: BoxFit.fitWidth,
                     child: Text(
-                      state.name ?? "-",
+                      state.item.name ?? "-",
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -53,7 +53,7 @@ class DetailPage extends ConsumerWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              state.description ?? "No description",
+              state.item.description ?? "No description",
               style: const TextStyle(
                 fontSize: 16,
               ),
@@ -64,8 +64,8 @@ class DetailPage extends ConsumerWidget {
               children: [
                 RepositoryItemInfoParts(
                   iconData: Icons.star_border,
-                  text: state.stargazers_count != null
-                      ? state.stargazers_count.toString()
+                  text: state.item.stargazers_count != null
+                      ? state.item.stargazers_count.toString()
                       : "0",
                 ),
                 const SizedBox(
@@ -73,8 +73,8 @@ class DetailPage extends ConsumerWidget {
                 ),
                 RepositoryItemInfoParts(
                   iconData: Icons.visibility,
-                  text: state.watchers_count != null
-                      ? state.watchers_count.toString()
+                  text: state.item.watchers_count != null
+                      ? state.item.watchers_count.toString()
                       : "0",
                 ),
                 const SizedBox(
@@ -82,8 +82,8 @@ class DetailPage extends ConsumerWidget {
                 ),
                 RepositoryItemInfoParts(
                   iconData: FontAwesomeIcons.codeFork,
-                  text: state.forks_count != null
-                      ? state.forks_count.toString()
+                  text: state.item.forks_count != null
+                      ? state.item.forks_count.toString()
                       : "0",
                 ),
               ],
@@ -100,7 +100,7 @@ class DetailPage extends ConsumerWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(state.language ?? "-"),
+                Text(state.item.language ?? "-"),
               ],
             ),
             const Divider(),
@@ -115,8 +115,8 @@ class DetailPage extends ConsumerWidget {
                   ),
                 ),
                 Text(
-                  state.open_issues_count != null
-                      ? state.open_issues_count.toString()
+                  state.item.open_issues_count != null
+                      ? state.item.open_issues_count.toString()
                       : "0",
                 ),
               ],
@@ -130,10 +130,10 @@ class DetailPage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 8),
-            state.html_url != null
+            state.item.html_url != null
                 ? GestureDetector(
                     child: Text(
-                      state.html_url!,
+                      state.item.html_url!,
                       style: const TextStyle(
                         fontSize: 16,
                         decoration: TextDecoration.underline,
@@ -141,7 +141,7 @@ class DetailPage extends ConsumerWidget {
                     ),
                     onTap: () async {
                       try {
-                        await notifier.openURL(state.html_url!);
+                        await notifier.openURL(state.item.html_url!);
                       } catch (e) {
                         showDialog<String>(
                           context: context,

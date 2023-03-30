@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Controller/detail_page_controller.dart';
+import 'package:flutter_codecheck/Controller/detail_page_notifier.dart';
+import 'package:flutter_codecheck/Controller/detail_page_state.dart';
 import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_codecheck/Entities/repository_owner.dart';
 import 'package:flutter_codecheck/Pages/detail_page.dart';
@@ -152,7 +153,7 @@ void main() {
       MaterialApp(
         home: ProviderScope(
           overrides: [
-            detailPageControllerFamily
+            detailPageNotifierFamilyProvider
                 .overrideWithProvider(mockDetailPageControllerFamily),
           ],
           child: const DetailPage(item: item),
@@ -176,12 +177,12 @@ void main() {
 
 // 例外用のMockクラスとProvider
 final mockDetailPageControllerFamily = StateNotifierProvider.family<
-    MockDetailPageController, RepositoryItem, RepositoryItem>((ref, item) {
-  return MockDetailPageController(item);
+    MockDetailPageNotifier, DetailPageState, RepositoryItem>((ref, item) {
+  return MockDetailPageNotifier(item);
 });
 
-class MockDetailPageController extends DetailPageController {
-  MockDetailPageController(super.item);
+class MockDetailPageNotifier extends DetailPageNotifier {
+  MockDetailPageNotifier(super.item);
 
   @override
   Future<void> openURL(String url) async {

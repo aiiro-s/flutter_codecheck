@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Controller/search_page_controller.dart';
+import 'package:flutter_codecheck/Controller/search_page_notifier.dart';
 import 'package:flutter_codecheck/Pages/detail_page.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,8 +10,8 @@ class SearchPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncState = ref.watch(searchPageControllerProvider);
-    final store = ref.watch(searchPageControllerProvider.notifier);
+    final asyncState = ref.watch(searchPageNotifierProvider);
+    final store = ref.watch(searchPageNotifierProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('GitHub Repository Searcher'),
@@ -50,26 +50,33 @@ class SearchPage extends ConsumerWidget {
               data: (state) => Flexible(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: state.items.isNotEmpty
+                      child: state.repository.items.isNotEmpty
                           ? ListView.builder(
-                              itemCount: state.items.length,
+                              itemCount: state.repository.items.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return RepositoryItemInfo(
-                                  name: state.items[index].name ?? "unknown",
-                                  description: state.items[index].description ??
+                                  name: state.repository.items[index].name ??
+                                      "unknown",
+                                  description: state.repository.items[index]
+                                          .description ??
                                       "no comment",
-                                  language: state.items[index].language ?? "-",
-                                  stargazersCount:
-                                      state.items[index].stargazers_count ?? 0,
-                                  watchersCount:
-                                      state.items[index].watchers_count ?? 0,
-                                  forksCount:
-                                      state.items[index].forks_count ?? 0,
+                                  language:
+                                      state.repository.items[index].language ??
+                                          "-",
+                                  stargazersCount: state.repository.items[index]
+                                          .stargazers_count ??
+                                      0,
+                                  watchersCount: state.repository.items[index]
+                                          .watchers_count ??
+                                      0,
+                                  forksCount: state.repository.items[index]
+                                          .forks_count ??
+                                      0,
                                   onTap: () async {
                                     await Navigator.of(context).push<void>(
                                       MaterialPageRoute(
                                         builder: (context) => DetailPage(
-                                          item: state.items[index],
+                                          item: state.repository.items[index],
                                         ),
                                       ),
                                     );
