@@ -1,10 +1,11 @@
 import 'package:flutter_codecheck/Controller/detail_page_notifier.dart';
+import 'package:flutter_codecheck/Controller/detail_page_state.dart';
 import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() async {
-  group('DetailPageCounter_初期値', () {
+  group('DetailPageNotifier_初期値', () {
     test('初期化時の状態が、初期値の想定と一致していること', () async {
       const item = RepositoryItem(
         id: null,
@@ -22,12 +23,12 @@ void main() async {
 
       expect(
         container.read(detailPageNotifierFamilyProvider(item)),
-        item,
+        const DetailPageState(item: item),
       );
     });
   });
 
-  group('DetailPageCounter_openURL', () {
+  group('DetailPageNotifier_openURL', () {
     test('URLが正しい場合、例外が処理されないこと', () async {
       const item = RepositoryItem(
         id: null,
@@ -47,7 +48,7 @@ void main() async {
           container.read(detailPageNotifierFamilyProvider(item).notifier);
 
       expect(
-        () async => await notifier.openURL(state.html_url!),
+        () async => await notifier.openURL(state.item.html_url!),
         isA(),
       );
     });

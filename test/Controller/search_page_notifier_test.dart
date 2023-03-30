@@ -1,4 +1,5 @@
 import 'package:flutter_codecheck/Controller/search_page_notifier.dart';
+import 'package:flutter_codecheck/Controller/search_page_state.dart';
 import 'package:flutter_codecheck/Entities/repository.dart';
 import 'package:flutter_codecheck/Repository/repo_repository.dart';
 import 'package:flutter_codecheck/Repository/repo_repository_impl.dart';
@@ -7,11 +8,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 
-import 'search_page_controller_test.mocks.dart';
+import 'search_page_notifier_test.mocks.dart';
 
 @GenerateMocks([RepoRepositoryImpl])
 void main() async {
-  group('SearchPageCounter_初期値', () {
+  group('SearchPageNotifier_初期値', () {
     test('初期化時の状態が、初期値の想定と一致していること', () async {
       RepoRepositoryImpl repoRepository = MockRepoRepositoryImpl();
       final container = ProviderContainer(
@@ -22,12 +23,14 @@ void main() async {
 
       expect(
         container.read(searchPageNotifierProvider),
-        const AsyncData(Repository(total_count: 0, items: [])),
+        const AsyncData(
+          SearchPageState(repository: Repository(total_count: 0, items: [])),
+        ),
       );
     });
   });
 
-  group('SearchPageCounter_fetchの確認', () {
+  group('SearchPageNotifier_fetchの確認', () {
     test('ローディング状態が正しく動作すること', () async {
       RepoRepositoryImpl repoRepository = MockRepoRepositoryImpl();
       when(repoRepository.fetchByKeyword('query'))
@@ -69,7 +72,9 @@ void main() async {
       // stateのrepositoryがMockから取得した値と一致していること
       expect(
         container.read(searchPageNotifierProvider).value,
-        const Repository(total_count: 1, items: []),
+        const SearchPageState(
+          repository: Repository(total_count: 1, items: []),
+        ),
       );
     });
 
