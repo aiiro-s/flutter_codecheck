@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codecheck/Controller/search_page_notifier.dart';
 import 'package:flutter_codecheck/Pages/detail_page.dart';
+import 'package:flutter_codecheck/Providers/color_theme_provider.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,9 +13,22 @@ class SearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncState = ref.watch(searchPageNotifierProvider);
     final store = ref.watch(searchPageNotifierProvider.notifier);
+    final themeState = ref.watch(colorThemeProvider);
+    final themeNotifier = ref.watch(colorThemeProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('GitHub Repository Searcher'),
+        actions: [
+          IconButton(
+            icon: themeState == true
+                ? const Icon(Icons.dark_mode)
+                : const Icon(Icons.light_mode),
+            tooltip: 'モードの切り替え',
+            onPressed: () {
+              themeNotifier.state = !themeNotifier.state;
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
