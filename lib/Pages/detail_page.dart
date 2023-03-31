@@ -15,7 +15,10 @@ class DetailPage extends ConsumerWidget {
     final notifier = ref.read(detailPageNotifierFamilyProvider(item).notifier);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Detail'),
+        title: Text(
+          'Detail',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -36,16 +39,13 @@ class DetailPage extends ConsumerWidget {
                             Image.asset('assets/images/noImage.png').image,
                         backgroundColor: Colors.white,
                       ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 16),
                 Flexible(
                   child: FittedBox(
                     fit: BoxFit.fitWidth,
                     child: Text(
                       state.item.name ?? "-",
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                 ),
@@ -54,9 +54,7 @@ class DetailPage extends ConsumerWidget {
             const SizedBox(height: 16),
             Text(
               state.item.description ?? "No description",
-              style: const TextStyle(
-                fontSize: 16,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             const SizedBox(height: 16),
             Row(
@@ -93,51 +91,45 @@ class DetailPage extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'language',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-                Text(state.item.language ?? "-"),
+                Text(
+                  state.item.language ?? "-",
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ],
             ),
             const Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'open issue count',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Text(
                   state.item.open_issues_count != null
                       ? state.item.open_issues_count.toString()
                       : "0",
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ],
             ),
             const Divider(),
-            const Text(
+            Text(
               'URL',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 8),
             state.item.html_url != null
                 ? GestureDetector(
                     child: Text(
                       state.item.html_url!,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        decoration: TextDecoration.underline,
-                      ),
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            decoration: TextDecoration.underline,
+                          ),
                     ),
                     onTap: () async {
                       try {
@@ -146,12 +138,22 @@ class DetailPage extends ConsumerWidget {
                         showDialog<String>(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
-                            title: const Text('エラー'),
-                            content: const Text('URLが開けませんでした'),
+                            title: Text(
+                              'エラー',
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                            content: Text(
+                              'URLが開けませんでした',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
                             actions: <Widget>[
                               TextButton(
                                 onPressed: () => Navigator.pop(context, 'OK'),
-                                child: const Text('OK'),
+                                child: Text(
+                                  'OK',
+                                  style:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
                               ),
                             ],
                           ),
@@ -159,7 +161,10 @@ class DetailPage extends ConsumerWidget {
                       }
                     },
                   )
-                : const Text('リンクがありません'),
+                : Text(
+                    'リンクがありません',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
           ],
         ),
       ),

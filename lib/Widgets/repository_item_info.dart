@@ -36,19 +36,30 @@ class RepositoryItemInfo extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(name,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        )),
-                    Text(description),
+                    Text(
+                      name,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      description,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                     const SizedBox(
                       height: 4,
                     ),
                     Row(
                       children: [
-                        const Text('Langage:'),
-                        Text(language),
+                        Text(
+                          'Langage:',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        Text(
+                          language,
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
                       ],
                     ),
                     const SizedBox(
