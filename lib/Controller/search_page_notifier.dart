@@ -22,10 +22,11 @@ class SearchPageNotifier extends StateNotifier<AsyncValue<SearchPageState>> {
   }
 
   Future<void> fetch(String keyword) async {
-    state = const AsyncLoading<SearchPageState>().copyWithPrevious(state);
+    final previosState = state.copyWithPrevious(state);
+    state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       final data = await repoRepository.fetchByKeyword(keyword);
-      return state.value!.copyWith(repository: data);
+      return previosState.value!.copyWith(repository: data);
     });
   }
 }
