@@ -1,0 +1,26 @@
+{
+  "@@locale": "ja",
+
+  "common_exception": "例外が発生しました。アプリを再起動して、再度確認してください。",
+
+  "common_error": "エラー",
+
+  "common_ok": "OK",
+
+  "search_page_appBar_title": "GitHub Repository Searcher",
+
+  "search_page_appBar_tooltip": "モードの切り替え",
+
+  "search_page_textField_hintText": "検索したいキーワードを入力",
+
+  "search_page_no_result": "GitHubリポジトリの取得に失敗しました",
+
+  "search_page_search_error": "例外が発生しました。アプリを再起動して、再度確認してください。",
+  
+  "detail_page_appBar_title": "詳細",
+  
+  "detail_page_notOpenURL": "URLが開けませんでした",
+  
+  "detail_page_notURL": "リンクがありません"
+
+}

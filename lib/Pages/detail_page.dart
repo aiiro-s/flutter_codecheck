@@ -4,6 +4,7 @@ import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info_parts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailPage extends ConsumerWidget {
   const DetailPage({super.key, required this.item});

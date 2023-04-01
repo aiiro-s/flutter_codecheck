@@ -1,0 +1,26 @@
+{
+  "@@locale": "en",
+
+  "common_exception": "An exception has occurred. Please restart the app and try again.",
+  
+  "common_error": "error",
+
+  "common_ok": "OK",
+
+  "search_page_appBar_title": "GitHub Repository Searcher",
+
+  "search_page_appBar_tooltip": "Toggle mode",
+
+  "search_page_textField_hintText": "Enter the keyword you want to search",
+
+  "search_page_no_result": "Failed to retrieve GitHub repositories",
+
+  "search_page_search_error": "An exception has occurred. Please restart the app and try again.",
+
+  "detail_page_appBar_title": "Details",
+  
+  "detail_page_notOpenURL": "Failed to open URL",
+  
+  "detail_page_notURL": "No link available"
+
+}
