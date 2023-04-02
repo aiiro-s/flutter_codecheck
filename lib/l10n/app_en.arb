@@ -11,11 +11,11 @@
 
   "search_page_appBar_tooltip": "Toggle mode",
 
-  "search_page_textField_hintText": "Enter the keyword you want to search",
+  "search_page_textField_hintText": "Enter search keyword",
 
-  "search_page_no_result": "Failed to retrieve GitHub repositories",
+  "search_page_no_result": "There's no result found",
 
-  "search_page_search_error": "An exception has occurred. Please restart the app and try again.",
+  "search_page_search_error": "Failed to retrieve GitHub repositories",
 
   "detail_page_appBar_title": "Details",
   

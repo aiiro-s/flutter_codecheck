@@ -13,9 +13,9 @@
 
   "search_page_textField_hintText": "検索したいキーワードを入力",
 
-  "search_page_no_result": "GitHubリポジトリの取得に失敗しました",
+  "search_page_no_result": "検索結果がありませんでした",
 
-  "search_page_search_error": "例外が発生しました。アプリを再起動して、再度確認してください。",
+  "search_page_search_error": "GitHubリポジトリの取得に失敗しました",
   
   "detail_page_appBar_title": "詳細",
   
