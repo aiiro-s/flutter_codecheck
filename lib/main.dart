@@ -37,6 +37,8 @@ class MainApp extends ConsumerWidget {
         Locale('ja'),
         Locale('en'),
       ],
+      //言語設定でデバックしたいときは下記を設定する。
+      //locale: const Locale('en'),
       home: SearchPage(),
     );
   }

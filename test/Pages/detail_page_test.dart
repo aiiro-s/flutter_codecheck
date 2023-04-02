@@ -4,8 +4,10 @@ import 'package:flutter_codecheck/Controller/detail_page_state.dart';
 import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_codecheck/Entities/repository_owner.dart';
 import 'package:flutter_codecheck/Pages/detail_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   testWidgets('DetilPageの表示確認（null値）', (tester) async {
@@ -27,11 +29,22 @@ void main() {
         home: ProviderScope(
           child: DetailPage(item: item),
         ),
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('ja'),
+          Locale('en'),
+        ],
+        locale: Locale("ja"),
       ),
     );
 
     //AppBarがGitHub Repository Searcherであること
-    expect(find.widgetWithText(AppBar, 'Detail'), findsOneWidget);
+    expect(find.widgetWithText(AppBar, '詳細'), findsOneWidget);
 
     //画面の固定文言が表示されていること
     expect(find.text('language'), findsOneWidget);
@@ -76,6 +89,17 @@ void main() {
         home: ProviderScope(
           child: DetailPage(item: item),
         ),
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('ja'),
+          Locale('en'),
+        ],
+        locale: Locale("ja"),
       ),
     );
 
@@ -111,6 +135,17 @@ void main() {
         home: ProviderScope(
           child: DetailPage(item: item),
         ),
+        localizationsDelegates: [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('ja'),
+          Locale('en'),
+        ],
+        locale: Locale("ja"),
       ),
     );
 
@@ -158,6 +193,17 @@ void main() {
           ],
           child: const DetailPage(item: item),
         ),
+        localizationsDelegates: const [
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('ja'),
+          Locale('en'),
+        ],
+        locale: const Locale("ja"),
       ),
     );
 

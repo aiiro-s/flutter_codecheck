@@ -4,6 +4,7 @@ import 'package:flutter_codecheck/Pages/detail_page.dart';
 import 'package:flutter_codecheck/Providers/color_theme_provider.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchPage extends ConsumerWidget {
   SearchPage({super.key});
@@ -18,7 +19,7 @@ class SearchPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'GitHub Repository Searcher',
+          AppLocalizations.of(context).search_page_appBar_title,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         actions: [
@@ -26,7 +27,7 @@ class SearchPage extends ConsumerWidget {
             icon: themeState == true
                 ? const Icon(Icons.dark_mode)
                 : const Icon(Icons.light_mode),
-            tooltip: 'モードの切り替え',
+            tooltip: AppLocalizations.of(context).search_page_appBar_tooltip,
             onPressed: () {
               themeNotifier.state = !themeNotifier.state;
             },
@@ -42,7 +43,8 @@ class SearchPage extends ConsumerWidget {
               child: TextField(
                 controller: _searchController,
                 decoration: InputDecoration(
-                  hintText: '検索したいキーワードを入力',
+                  hintText: AppLocalizations.of(context)
+                      .search_page_textField_hintText,
                   hintStyle: Theme.of(context).textTheme.labelLarge,
                   suffixIcon: IconButton(
                     icon: const Icon(Icons.clear),
@@ -103,7 +105,8 @@ class SearchPage extends ConsumerWidget {
                               },
                             )
                           : Text(
-                              '検索結果がありませんでした',
+                              AppLocalizations.of(context)
+                                  .search_page_no_result,
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
                     ),
@@ -111,12 +114,12 @@ class SearchPage extends ConsumerWidget {
               error: (Object error, StackTrace stackTrace) {
                 if (error.toString() == 'Exception: GitHubリポジトリの取得に失敗しました') {
                   return Text(
-                    'GitHubリポジトリの取得に失敗しました',
+                    AppLocalizations.of(context).search_page_search_error,
                     style: Theme.of(context).textTheme.bodyMedium,
                   );
                 } else {
                   return Text(
-                    '例外が発生しました。アプリを再起動して、再度確認してください。',
+                    AppLocalizations.of(context).common_exception,
                     style: Theme.of(context).textTheme.bodyMedium,
                   );
                 }
