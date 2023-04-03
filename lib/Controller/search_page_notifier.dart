@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_codecheck/Controller/search_page_state.dart';
 import 'package:flutter_codecheck/Entities/repository.dart';
 import 'package:flutter_codecheck/Repository/repo_repository.dart';
@@ -22,11 +23,10 @@ class SearchPageNotifier extends StateNotifier<AsyncValue<SearchPageState>> {
   }
 
   Future<void> fetch(String keyword) async {
-    final previosState = state.copyWithPrevious(state);
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       final data = await repoRepository.fetchByKeyword(keyword);
-      return previosState.value!.copyWith(repository: data);
+      return SearchPageState(repository: data);
     });
   }
 }
