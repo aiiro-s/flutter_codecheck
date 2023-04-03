@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 // GitHubAPIの名前に合わせるため。
 
-import 'package:flutter_codecheck/Entities/repository_item.dart';
+import 'package:flutter_codecheck/entity/repository_item.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 part 'repository.freezed.dart';

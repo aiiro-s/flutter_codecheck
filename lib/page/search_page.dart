@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Controller/search_page_notifier.dart';
-import 'package:flutter_codecheck/Pages/detail_page.dart';
-import 'package:flutter_codecheck/Providers/color_theme_provider.dart';
-import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
+import 'package:flutter_codecheck/notifier/search_page_notifier.dart';
+import 'package:flutter_codecheck/page/detail_page.dart';
+import 'package:flutter_codecheck/provider/color_theme_provider.dart';
+import 'package:flutter_codecheck/component/repository_item_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

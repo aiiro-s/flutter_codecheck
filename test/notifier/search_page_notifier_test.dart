@@ -1,8 +1,8 @@
-import 'package:flutter_codecheck/Controller/search_page_notifier.dart';
-import 'package:flutter_codecheck/Controller/search_page_state.dart';
-import 'package:flutter_codecheck/Entities/repository.dart';
-import 'package:flutter_codecheck/Repository/repo_repository.dart';
-import 'package:flutter_codecheck/Repository/repo_repository_impl.dart';
+import 'package:flutter_codecheck/entity/repository.dart';
+import 'package:flutter_codecheck/repository/repo_repository.dart';
+import 'package:flutter_codecheck/repository/repo_repository_impl.dart';
+import 'package:flutter_codecheck/notifier/search_page_notifier.dart';
+import 'package:flutter_codecheck/notifier/search_page_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

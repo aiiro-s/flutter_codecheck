@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter_codecheck/Entities/repository.dart';
+import 'package:flutter_codecheck/entity/repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../testdata/testdata.dart';
