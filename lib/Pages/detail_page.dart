@@ -4,6 +4,7 @@ import 'package:flutter_codecheck/Entities/repository_item.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info_parts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailPage extends ConsumerWidget {
   const DetailPage({super.key, required this.item});
@@ -16,7 +17,7 @@ class DetailPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Detail',
+          AppLocalizations.of(context).detail_page_appBar_title,
           style: Theme.of(context).textTheme.titleMedium,
         ),
       ),
@@ -139,18 +140,19 @@ class DetailPage extends ConsumerWidget {
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
                             title: Text(
-                              'エラー',
+                              AppLocalizations.of(context).common_error,
                               style: Theme.of(context).textTheme.titleMedium,
                             ),
                             content: Text(
-                              'URLが開けませんでした',
+                              AppLocalizations.of(context)
+                                  .detail_page_notOpenURL,
                               style: Theme.of(context).textTheme.bodyMedium,
                             ),
                             actions: <Widget>[
                               TextButton(
-                                onPressed: () => Navigator.pop(context, 'OK'),
+                                onPressed: () => Navigator.pop(context),
                                 child: Text(
-                                  'OK',
+                                  AppLocalizations.of(context).common_ok,
                                   style:
                                       Theme.of(context).textTheme.labelMedium,
                                 ),
@@ -162,7 +164,7 @@ class DetailPage extends ConsumerWidget {
                     },
                   )
                 : Text(
-                    'リンクがありません',
+                    AppLocalizations.of(context).detail_page_notURL,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
           ],

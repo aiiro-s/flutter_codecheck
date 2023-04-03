@@ -5,11 +5,13 @@ import 'package:flutter_codecheck/Pages/search_page.dart';
 import 'package:flutter_codecheck/Repository/repo_repository.dart';
 import 'package:flutter_codecheck/Repository/repo_repository_impl.dart';
 import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:mockito/annotations.dart';
 import 'search_page_test.mocks.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @GenerateMocks([RepoRepositoryImpl])
 void main() {
@@ -22,6 +24,17 @@ void main() {
         ],
         child: SearchPage(),
       ),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+      ],
+      locale: const Locale("ja"),
     ));
 
     //AppBarがGitHub Repository Searcherであること
@@ -64,6 +77,17 @@ void main() {
         ],
         child: SearchPage(),
       ),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+      ],
+      locale: const Locale("ja"),
     ));
 
     //初期表示で空の検索入力フィールドを検索し、queryを入力し、tapする
@@ -118,6 +142,17 @@ void main() {
         ],
         child: SearchPage(),
       ),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+      ],
+      locale: const Locale("ja"),
     ));
 
     //初期表示で空の検索入力フィールドを検索し、queryを入力し、tapする
@@ -164,6 +199,17 @@ void main() {
         ],
         child: SearchPage(),
       ),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+      ],
+      locale: const Locale("ja"),
     ));
 
     //初期表示で空の検索入力フィールドを検索し、queryを入力し、tapする
@@ -197,6 +243,17 @@ void main() {
         ],
         child: SearchPage(),
       ),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+      ],
+      locale: const Locale("ja"),
     ));
 
     //初期表示で空の検索入力フィールドを検索し、queryを入力し、tapする
@@ -230,6 +287,17 @@ void main() {
         ],
         child: SearchPage(),
       ),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+      ],
+      locale: const Locale("ja"),
     ));
 
     //初期表示で空の検索入力フィールドを検索し、queryを入力し、tapする
@@ -262,6 +330,17 @@ void main() {
         ],
         child: SearchPage(),
       ),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('ja'),
+        Locale('en'),
+      ],
+      locale: const Locale("ja"),
     ));
 
     //初期表示で空の検索入力フィールドを検索し、queryを入力する。
