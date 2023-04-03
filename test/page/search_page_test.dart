@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Entities/repository.dart';
-import 'package:flutter_codecheck/Entities/repository_item.dart';
-import 'package:flutter_codecheck/Pages/search_page.dart';
-import 'package:flutter_codecheck/Repository/repo_repository.dart';
-import 'package:flutter_codecheck/Repository/repo_repository_impl.dart';
-import 'package:flutter_codecheck/Widgets/repository_item_info.dart';
+import 'package:flutter_codecheck/entity/repository.dart';
+import 'package:flutter_codecheck/entity/repository_item.dart';
+import 'package:flutter_codecheck/page/search_page.dart';
+import 'package:flutter_codecheck/repository/repo_repository.dart';
+import 'package:flutter_codecheck/repository/repo_repository_impl.dart';
+import 'package:flutter_codecheck/component/repository_item_info.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

@@ -1,4 +1,4 @@
-import 'package:flutter_codecheck/Entities/repository.dart';
+import 'package:flutter_codecheck/entity/repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'search_page_state.freezed.dart';
 

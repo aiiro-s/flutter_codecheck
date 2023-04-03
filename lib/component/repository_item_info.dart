@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Widgets/repository_item_info_parts.dart';
+import 'package:flutter_codecheck/component/repository_item_info_parts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RepositoryItemInfo extends StatelessWidget {

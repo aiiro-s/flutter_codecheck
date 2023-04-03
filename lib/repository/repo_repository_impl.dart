@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:flutter_codecheck/Entities/repository.dart';
-import 'package:flutter_codecheck/Repository/repo_repository.dart';
-import 'package:flutter_codecheck/Service/github_service.dart';
+import 'package:flutter_codecheck/entity/repository.dart';
+import 'package:flutter_codecheck/repository/repo_repository.dart';
+import 'package:flutter_codecheck/service/github_service.dart';
 
 class RepoRepositoryImpl implements RepoRepository {
   RepoRepositoryImpl(this.service);

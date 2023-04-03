@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Controller/detail_page_notifier.dart';
-import 'package:flutter_codecheck/Controller/detail_page_state.dart';
-import 'package:flutter_codecheck/Entities/repository_item.dart';
-import 'package:flutter_codecheck/Entities/repository_owner.dart';
-import 'package:flutter_codecheck/Pages/detail_page.dart';
+import 'package:flutter_codecheck/entity/repository_item.dart';
+import 'package:flutter_codecheck/entity/repository_owner.dart';
+import 'package:flutter_codecheck/page/detail_page.dart';
+import 'package:flutter_codecheck/notifier/detail_page_notifier.dart';
+import 'package:flutter_codecheck/notifier/detail_page_state.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

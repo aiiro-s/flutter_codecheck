@@ -1,5 +1,5 @@
-import 'package:flutter_codecheck/Controller/detail_page_state.dart';
-import 'package:flutter_codecheck/Entities/repository_item.dart';
+import 'package:flutter_codecheck/entity/repository_item.dart';
+import 'package:flutter_codecheck/notifier/detail_page_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 

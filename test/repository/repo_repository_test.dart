@@ -1,6 +1,6 @@
-import 'package:flutter_codecheck/Entities/repository.dart';
-import 'package:flutter_codecheck/Repository/repo_repository_impl.dart';
-import 'package:flutter_codecheck/Service/github_service.dart';
+import 'package:flutter_codecheck/entity/repository.dart';
+import 'package:flutter_codecheck/repository/repo_repository_impl.dart';
+import 'package:flutter_codecheck/service/github_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';

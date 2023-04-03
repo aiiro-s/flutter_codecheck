@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_codecheck/Pages/search_page.dart';
-import 'package:flutter_codecheck/Providers/color_theme_provider.dart';
+import 'package:flutter_codecheck/page/search_page.dart';
+import 'package:flutter_codecheck/provider/color_theme_provider.dart';
 import 'package:flutter_codecheck/Theme/color_schemes.g.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
