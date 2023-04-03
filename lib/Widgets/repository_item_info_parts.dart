@@ -15,7 +15,10 @@ class RepositoryItemInfoParts extends StatelessWidget {
         const SizedBox(
           width: 4,
         ),
-        Text(text),
+        Text(
+          text,
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       ],
     );
   }

@@ -17,7 +17,10 @@ class SearchPage extends ConsumerWidget {
     final themeNotifier = ref.watch(colorThemeProvider.notifier);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GitHub Repository Searcher'),
+        title: Text(
+          'GitHub Repository Searcher',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
         actions: [
           IconButton(
             icon: themeState == true
@@ -40,6 +43,7 @@ class SearchPage extends ConsumerWidget {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: '検索したいキーワードを入力',
+                  hintStyle: Theme.of(context).textTheme.labelLarge,
                   suffixIcon: IconButton(
                     icon: const Icon(Icons.clear),
                     onPressed: () => _searchController.clear(),
@@ -98,14 +102,23 @@ class SearchPage extends ConsumerWidget {
                                 );
                               },
                             )
-                          : const Text('検索結果がありませんでした'),
+                          : Text(
+                              '検索結果がありませんでした',
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
                     ),
                   ),
               error: (Object error, StackTrace stackTrace) {
                 if (error.toString() == 'Exception: GitHubリポジトリの取得に失敗しました') {
-                  return const Text('GitHubリポジトリの取得に失敗しました');
+                  return Text(
+                    'GitHubリポジトリの取得に失敗しました',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  );
                 } else {
-                  return const Text('例外が発生しました。アプリを再起動して、再度確認してください。');
+                  return Text(
+                    '例外が発生しました。アプリを再起動して、再度確認してください。',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  );
                 }
               },
               loading: () {
