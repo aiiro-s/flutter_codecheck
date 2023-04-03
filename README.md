@@ -1,10 +1,10 @@
 # 要件
 
- - 何かしらのキーワードを入力できる
- - 入力したキーワードで GitHub のリポジトリを検索できる
- - GitHub のリポジトリを検索する際、GitHub API（search/repositories）を利用する
+ - 何かしらのキーワードを入力できる。
+ - 入力したキーワードで GitHub のリポジトリを検索できる。
+ - GitHub のリポジトリを検索する際、GitHub API（search/repositories）を利用する。
  - github | Dart Package のようなパッケージは利用せず、API を呼ぶ処理を自分で実装する。
- - 検索結果は一覧で概要（リポジトリ名）を表示する
+ - 検索結果は一覧で概要（リポジトリ名）を表示する。
  - 検索結果のアイテムをタップしたら、該当リポジトリの詳細（リポジトリ名、オーナーアイコン、プロジェクト言語、Star 数、Watcher 数、Fork 数、Issue 数）を表示する。
  - ダークモードに切り替えできる。
  - 多言語化（英語、日本語）に対応している。
@@ -25,15 +25,15 @@
 
 ```lib配下
 lib
-├ compornents	// 画面構成要素の部品
-├ entity		// ユーザー情報等の実体
-├ l10n  		// 多言語設定ファイル
-├ notifier		// 状態管理に係るクラス
-├ page			// 各画面
-├ repository	// データ制御クラス
-├ service   	// APIコール
-├ theme     	// テーマ
-main.dart		// アプリケーションのルート
+├ compornents // 画面構成要素の部品
+├ entity      // ユーザー情報等の実体
+├ l10n        // 多言語設定ファイル
+├ notifier    // 状態管理に係るクラス
+├ page        // 各画面
+├ repository  // データ制御クラス
+├ service     // APIコール
+├ theme       // テーマ
+main.dart     // アプリケーションのルート
 ```
 
 ## 保守性の考慮
