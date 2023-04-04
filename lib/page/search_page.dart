@@ -6,12 +6,28 @@ import 'package:flutter_codecheck/component/repository_item_info.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class SearchPage extends ConsumerWidget {
-  SearchPage({super.key});
-  final TextEditingController _searchController = TextEditingController();
+class SearchPage extends ConsumerStatefulWidget {
+  const SearchPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  SearchPageStateful createState() => SearchPageStateful();
+}
+
+class SearchPageStateful extends ConsumerState<SearchPage>
+    with SingleTickerProviderStateMixin {
+  final TextEditingController _searchController = TextEditingController();
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 2),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final asyncState = ref.watch(searchPageNotifierProvider);
     final store = ref.watch(searchPageNotifierProvider.notifier);
     final themeState = ref.watch(colorThemeProvider);
@@ -54,6 +70,10 @@ class SearchPage extends ConsumerWidget {
                     icon: const Icon(Icons.search),
                     onPressed: () async {
                       await store.fetch(_searchController.text);
+
+                      // Tap後にアニメーションを初期化して再描画
+                      _animationController.value = 0;
+                      _animationController.forward();
                     },
                   ),
                   border: OutlineInputBorder(
@@ -74,33 +94,47 @@ class SearchPage extends ConsumerWidget {
                           ? ListView.builder(
                               itemCount: state.repository.items.length,
                               itemBuilder: (BuildContext context, int index) {
-                                return RepositoryItemInfo(
-                                  name: state.repository.items[index].name ??
-                                      "unknown",
-                                  description: state.repository.items[index]
-                                          .description ??
-                                      "no comment",
-                                  language:
-                                      state.repository.items[index].language ??
-                                          "-",
-                                  stargazersCount: state.repository.items[index]
-                                          .stargazers_count ??
-                                      0,
-                                  watchersCount: state.repository.items[index]
-                                          .watchers_count ??
-                                      0,
-                                  forksCount: state.repository.items[index]
-                                          .forks_count ??
-                                      0,
-                                  onTap: () async {
-                                    await Navigator.of(context).push<void>(
-                                      MaterialPageRoute(
-                                        builder: (context) => DetailPage(
-                                          item: state.repository.items[index],
-                                        ),
+                                return FadeTransition(
+                                  opacity:
+                                      Tween<double>(begin: 0, end: 1).animate(
+                                    CurvedAnimation(
+                                      parent: _animationController,
+                                      curve: Interval(
+                                        (index + 1) /
+                                            state.repository.items.length,
+                                        1.0,
+                                        curve: Curves.easeOut,
                                       ),
-                                    );
-                                  },
+                                    ),
+                                  ),
+                                  child: RepositoryItemInfo(
+                                    name: state.repository.items[index].name ??
+                                        "unknown",
+                                    description: state.repository.items[index]
+                                            .description ??
+                                        "no comment",
+                                    language: state
+                                            .repository.items[index].language ??
+                                        "-",
+                                    stargazersCount: state.repository
+                                            .items[index].stargazers_count ??
+                                        0,
+                                    watchersCount: state.repository.items[index]
+                                            .watchers_count ??
+                                        0,
+                                    forksCount: state.repository.items[index]
+                                            .forks_count ??
+                                        0,
+                                    onTap: () async {
+                                      await Navigator.of(context).push<void>(
+                                        MaterialPageRoute(
+                                          builder: (context) => DetailPage(
+                                            item: state.repository.items[index],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
                                 );
                               },
                             )

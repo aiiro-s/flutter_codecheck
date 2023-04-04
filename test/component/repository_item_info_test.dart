@@ -5,14 +5,16 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   testWidgets('RepositoryItemInfoの表示確認', (tester) async {
     await tester.pumpWidget(MaterialApp(
-      home: RepositoryItemInfo(
-        name: 'name',
-        description: 'description',
-        forksCount: 1,
-        language: 'language',
-        onTap: () {},
-        stargazersCount: 2,
-        watchersCount: 3,
+      home: Scaffold(
+        body: RepositoryItemInfo(
+          name: 'name',
+          description: 'description',
+          forksCount: 1,
+          language: 'language',
+          onTap: () {},
+          stargazersCount: 2,
+          watchersCount: 3,
+        ),
       ),
     ));
 

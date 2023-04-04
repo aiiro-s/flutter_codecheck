@@ -24,9 +24,8 @@ class RepositoryItemInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
-      behavior: HitTestBehavior.translucent,
       child: Column(
         children: [
           Row(

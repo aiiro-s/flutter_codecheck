@@ -125,7 +125,7 @@ class DetailPage extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             state.item.html_url != null
-                ? GestureDetector(
+                ? InkWell(
                     child: Text(
                       state.item.html_url!,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
