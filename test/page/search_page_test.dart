@@ -22,7 +22,7 @@ void main() {
         overrides: [
           repoRepositoryProvider.overrideWith((ref) => repoRepository)
         ],
-        child: SearchPage(),
+        child: const SearchPage(),
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -75,7 +75,7 @@ void main() {
         overrides: [
           repoRepositoryProvider.overrideWith((ref) => repoRepository)
         ],
-        child: SearchPage(),
+        child: const SearchPage(),
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -140,7 +140,7 @@ void main() {
         overrides: [
           repoRepositoryProvider.overrideWith((ref) => repoRepository)
         ],
-        child: SearchPage(),
+        child: const SearchPage(),
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -197,7 +197,7 @@ void main() {
         overrides: [
           repoRepositoryProvider.overrideWith((ref) => repoRepository)
         ],
-        child: SearchPage(),
+        child: const SearchPage(),
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -241,7 +241,7 @@ void main() {
         overrides: [
           repoRepositoryProvider.overrideWith((ref) => repoRepository)
         ],
-        child: SearchPage(),
+        child: const SearchPage(),
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -285,7 +285,7 @@ void main() {
         overrides: [
           repoRepositoryProvider.overrideWith((ref) => repoRepository)
         ],
-        child: SearchPage(),
+        child: const SearchPage(),
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -328,7 +328,7 @@ void main() {
         overrides: [
           repoRepositoryProvider.overrideWith((ref) => repoRepository)
         ],
-        child: SearchPage(),
+        child: const SearchPage(),
       ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
