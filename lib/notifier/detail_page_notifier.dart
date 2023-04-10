@@ -1,20 +1,19 @@
 import 'package:flutter_codecheck/entity/repository_item.dart';
 import 'package:flutter_codecheck/notifier/detail_page_state.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part 'detail_page_notifier.g.dart';
 
-final detailPageNotifierFamilyProvider = StateNotifierProvider.family<
-    DetailPageNotifier, DetailPageState, RepositoryItem>((ref, item) {
-  return DetailPageNotifier(item);
-});
-
-class DetailPageNotifier extends StateNotifier<DetailPageState> {
-  DetailPageNotifier(this.item) : super(DetailPageState(item: item));
-  RepositoryItem item;
+@riverpod
+class DetailPageNotifier extends _$DetailPageNotifier {
+  @override
+  DetailPageState build(RepositoryItem item) {
+    return DetailPageState(item: item);
+  }
 
   Future<void> openURL(String url) async {
-    final Uri url = Uri.parse(state.item.html_url!);
-    if (!await launchUrl(url) || await canLaunchUrl(url)) {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri) || await canLaunchUrl(uri)) {
       throw Exception();
     }
   }

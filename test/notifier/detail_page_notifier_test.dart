@@ -22,7 +22,7 @@ void main() async {
       final container = ProviderContainer();
 
       expect(
-        container.read(detailPageNotifierFamilyProvider(item)),
+        container.read(detailPageNotifierProvider(item)),
         const DetailPageState(item: item),
       );
     });
@@ -43,9 +43,9 @@ void main() async {
         open_issues_count: null,
       );
       final container = ProviderContainer();
-      final state = container.read(detailPageNotifierFamilyProvider(item));
+      final state = container.read(detailPageNotifierProvider(item));
       final notifier =
-          container.read(detailPageNotifierFamilyProvider(item).notifier);
+          container.read(detailPageNotifierProvider(item).notifier);
 
       expect(
         () async => await notifier.openURL(state.item.html_url!),

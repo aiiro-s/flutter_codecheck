@@ -12,8 +12,8 @@ class DetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.read(detailPageNotifierFamilyProvider(item));
-    final notifier = ref.read(detailPageNotifierFamilyProvider(item).notifier);
+    final state = ref.read(detailPageNotifierProvider(item));
+    final notifier = ref.read(detailPageNotifierProvider(item).notifier);
     return Scaffold(
       appBar: AppBar(
         title: Text(
